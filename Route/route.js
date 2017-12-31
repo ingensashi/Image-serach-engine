@@ -2,8 +2,16 @@
 
 
 var MongoClient = require('mongodb').MongoClient;
+//const url = 'mongodb://localhost:27017';
 var url = "mongodb://localhost:27017/image-search-engine-dev";
 var Scraper = require ('images-scraper'), google = new Scraper.Google();
+var dbName='image-search-engine-dev';
+  
+  // Use connect method to connect to the server
+  MongoClient.connect(url,function(err,client){
+     db = client.db(dbName);
+     console.log("connection create successfully")
+  })
 
     module.exports = function(app) {
         // server routes ===========================================================
@@ -12,8 +20,8 @@ var Scraper = require ('images-scraper'), google = new Scraper.Google();
         // sample api route
         app.get('/getTags', function(req, response) {
             // use mongodb to get all imagestags in the database
-            MongoClient.connect(url,function(err,db){
-              db.collection('images_tags').find().toArray(function(err,res){
+              const collection = db.collection('images_tags');
+              collection.find().toArray(function(err,res){
                 if(err){ // if there is an error retrieving, send the error. 
                         // nothing after res.send(err) will execute
                      response.send(err);
@@ -22,31 +30,28 @@ var Scraper = require ('images-scraper'), google = new Scraper.Google();
                   response.json(res);
               })
             })
-        });
+        
 
 
  
     //search image by tags
     app.post('/searchTags',function(req,response){
-                   MongoClient.connect(url,function(err,db){
-                    db.collection('images_tags').find({'name':req.body.text}).toArray(function(err,res){
+                      const collection = db.collection('images_tags');
+                      collection.find({'name':req.body.text}).toArray(function(err,res){
                         if(err){
                             response.send(err);
                         }else{
                            response.json(res);
-                           db.close();
                     }
                 })
            })
-     })
 
 
      app.post('/insertTags',function(req,response){
-           MongoClient.connect(url,function(err,db){
-                db.collection('images_tags').find({'name':{'$regex': req.body.text,$options:'i'}}).toArray(function(err,res){
+                const collection = db.collection('images_tags');
+                collection.find({'name':{'$regex': req.body.text,$options:'i'}}).toArray(function(err,res){
                     if(res.length>0){
                         response.json(res);
-                        db.close();
                      }
                      else{
                          google.list({
@@ -59,12 +64,10 @@ var Scraper = require ('images-scraper'), google = new Scraper.Google();
                          }).then(function (res) {
                             console.log('first 15 results from google', res.length)
                             var imageData={name:req.body.text,image_info:res}
-                                MongoClient.connect(url,function(err,db){
-                                db.collection('images_tags').insert(imageData,function(err,res){
-                                response.json(res);
-                                db.close();
+                                collection.insertOne(imageData,function(err,res){
+                                response.json(res.ops);
                             })
-                     })
+                     
 
              }).catch(function(err) {
                 console.log('err', err);
@@ -73,5 +76,4 @@ var Scraper = require ('images-scraper'), google = new Scraper.Google();
           }
        })
     })
- })
  };

@@ -16,6 +16,7 @@ app.controller('imageCtrl',function($scope,Imagetags,$http,$state){
           	var imageData = {text:serachImage}
           	     $http.post('/insertTags',imageData).then(function(res){
           	     	$scope.isLoaded=false;
+                  console.log("insert ",res);
           	     	$scope.imageData=res.data[0].image_info;
           	     }).catch(function(err){
           	     	$scope.isLoaded=false;
