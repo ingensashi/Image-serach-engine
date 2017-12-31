@@ -28,6 +28,7 @@ app.controller('imageCtrl',function($scope,Imagetags,$http,$state){
   
    $scope.searchImageByKeyword = function(){
     	$scope.isLoaded=true;
+      $scope.imageData={};
           if($state.params.searchId!=undefined ||$state.params.searchId!=null){
           	var imageData = {text:$state.params.searchId}
           	     $http.post('/searchTags',imageData).then(function(res){
