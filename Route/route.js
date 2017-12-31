@@ -60,7 +60,7 @@ var dbName='image-search-engine-dev';
                                keyword: req.body.text,
                                 num: 15,
                                 detail: true,
-                                nightmare: {
+                                'nightmare': {
                                    show: false
                                 }
                          }).then(function (res) {
