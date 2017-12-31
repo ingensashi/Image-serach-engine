@@ -1,0 +1,29 @@
+<!-- public/views/index.html -->
+<!doctype html>
+<html lang="en" ng-app="image-search-engine">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Welcome to Image Bazzar</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body ng-controller="imageCtrl">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li ng-class="{'active':currentState=='image-search'}"><a ui-sref="image-search">Home</a></li>
+      <li ng-class="{'active':currentState=='image-list'}"><a ui-sref="image-list">Serach Keyword </a></li>
+    </ul>
+  </div>
+</nav>
+<div ui-view></div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script>
+ <script src ="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+ <script type="text/javascript" src="/js/application.js"></script>
+<script type="text/javascript" src="/js/controllers/controller.js"></script>
+<script type="text/javascript" src="/js/services/service.js"></script>
+</body>
+</html>

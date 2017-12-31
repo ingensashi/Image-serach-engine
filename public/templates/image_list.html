@@ -1,0 +1,4 @@
+
+<div class="list-group" ng-repeat="image in getImage track by $index">
+  <a  class="list-group-item" ng-click="searchImage(image.name)" ui-sref="image-view({searchId: image.name})">{{image.name}}</a>
+</div>
