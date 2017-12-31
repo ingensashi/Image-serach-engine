@@ -6,7 +6,7 @@ var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://sashi:sashi@ds249575.mlab.com:49575/image-search-engine-dev";
 //var url = "mongodb://localhost:27017/image-search-engine-dev";
 
-var Scraper = require ('images-scraper'), google = new Scraper.Bing();
+var Scraper = require ('images-scraper'), google = new Scraper.Google();
 var dbName='image-search-engine-dev';
   
   // Use connect method to connect to the server
