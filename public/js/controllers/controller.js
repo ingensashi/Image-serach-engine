@@ -12,6 +12,7 @@ app.controller('imageCtrl',function($scope,Imagetags,$http,$state){
 
       $scope.searchImage = function(serachImage){
       	$scope.isLoaded=true;
+        $scope.imageData={};
           if(serachImage!=undefined  || serachImage !=''){
           	var imageData = {text:serachImage}
           	     $http.post('/insertTags',imageData).then(function(res){
@@ -28,7 +29,6 @@ app.controller('imageCtrl',function($scope,Imagetags,$http,$state){
   
    $scope.searchImageByKeyword = function(){
     	$scope.isLoaded=true;
-      $scope.imageData={};
           if($state.params.searchId!=undefined ||$state.params.searchId!=null){
           	var imageData = {text:$state.params.searchId}
           	     $http.post('/searchTags',imageData).then(function(res){
