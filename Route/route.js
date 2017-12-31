@@ -59,7 +59,7 @@ var dbName='image-search-engine-dev';
                          google.list({
                                keyword: req.body.text,
                                 num: 15,
-                                detail: true
+                                detail: true,
                                 nightmare: {
                                    show: false
                                 }
