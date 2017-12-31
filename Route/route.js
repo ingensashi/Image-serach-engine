@@ -3,8 +3,10 @@
 
 var MongoClient = require('mongodb').MongoClient;
 //const url = 'mongodb://localhost:27017';
-var url = "mongodb://localhost:27017/image-search-engine-dev";
-var Scraper = require ('images-scraper'), google = new Scraper.Google();
+var url = "mongodb://sashi:sashi@ds249575.mlab.com:49575/image-search-engine-dev";
+//var url = "mongodb://localhost:27017/image-search-engine-dev";
+
+var Scraper = require ('images-scraper'), google = new Scraper.Bing();
 var dbName='image-search-engine-dev';
   
   // Use connect method to connect to the server
@@ -57,10 +59,10 @@ var dbName='image-search-engine-dev';
                          google.list({
                                keyword: req.body.text,
                                 num: 15,
-                                detail: true,
-                                nightmare: {
+                                detail: true
+                                /*nightmare: {
                                    show: false
-                                }
+                                }*/
                          }).then(function (res) {
                             console.log('first 15 results from google', res.length)
                             var imageData={name:req.body.text,image_info:res}
