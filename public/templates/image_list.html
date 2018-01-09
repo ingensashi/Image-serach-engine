@@ -1,4 +1,12 @@
-
-<div class="list-group" ng-repeat="image in getImage track by $index">
-  <a  class="list-group-item" ng-click="searchImage(image.name)" ui-sref="image-view({searchId: image.name})">{{image.name}}</a>
+<div class="container keyword-listing">
+  <div class="row">
+    <div class="col l6 offset-l3 m8 offset-m2 s12">
+      <ul class="collection with-header">
+        <li class="collection-header center-align"><h5>Searched Keywords</h5></li>
+        <li class="collection-item" ng-repeat="image in getImage track by $index">
+            <a  class="list-group-item" ng-click="searchImage(image.name)" ui-sref="image-view({searchId: image.name})">{{image.name}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>  
 </div>

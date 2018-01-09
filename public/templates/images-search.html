@@ -1,46 +1,47 @@
-
-
-<div class="container">
-  <div class="page-header">
-    <h1>Welcome Image Search Engine</h1>      
-  </div>     
-</div>
-
-
-
-<div class="container">
- 
-  <div class="row">
-    <div class="col-md-12">
-     
-<form>
-  <div class="input-group">
-    <input type="text" class="form-control" placeholder="Search" ng-model="serachImage"/>
-    <div class="input-group-btn" ng-click="searchImage(serachImage)">
-      <button class="btn btn-default" type="submit">
-        <i class="glyphicon glyphicon-search"></i>
-      </button>
-    </div>
-  </div>
-</form>
-    </div>
-   
-</div>
-<div id="loading" ng-show="isLoaded">
-<img id="loading-image" src="images/loading.gif" alt="Loading..." />
-</div>
-<div class="container">
-  <h2 ng-show="imageData">Image Gallery</h2>
-  <div class="row">
-    <div class="col-md-4" ng-repeat="img in imageData track by $index">
-      <div class="thumbnail">
-        <a href="{{img.url}}" target="_blank">
-          <img src="{{img.url}}" alt="Lights" style="width:100%">
-          <div class="caption">
-            {{img.name}}
+<section class="search-page">
+  <div class="container">
+    <div class="row">
+      <div class="col s8 offset-s2">
+        <div class="search-div">
+          <div class="page-header">
+            <h4 class="white-text center-align">Welcome To Image Search Engine</h4>      
           </div>
-        </a>
-      </div>
+          <form>
+            <div class="input-group">
+              <div class="row">
+                <div class="input-field col s9 m9">
+                  <input id="search_here" type="text" class="validate" ng-model="serachImage"/>
+                  <label for="search_here">Search Here</label>
+                </div>
+
+                <div class="col s3 m3">
+                  <div class="input-group-btn" ng-click="searchImage(serachImage)">
+                    <button class="btn blue white-text" type="submit">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>              
+            </div>
+          </form>
+        </div>
+      </div> 
     </div>
   </div>
+
+  <div class="">
+      <h4 ng-show="imageData" class="center-align white-text" style="margin-bottom:20px;">Image Gallery</h4>
+      <div class="row">
+          <div class="col m12 s12">
+            <ul class="gallery">
+              <li ng-repeat="img in imageData track by $index">
+                  <img class="materialboxed" src="{{img.url}}">
+              </li>
+            </ul>
+          </div>
+      </div>
+  </div>
+</section>
+<div id="loading" ng-show="isLoaded">
+  <img id="loading-image" src="images/loading.gif" alt="Loading..." />
 </div>
