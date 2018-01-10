@@ -1,17 +1,15 @@
 <div id="loading" ng-show="isLoaded">
 <img id="loading-image" src="images/loading.gif" alt="Loading..." />
 </div>
-<div class="container" ng-init="searchImageByKeyword()">
-  <h2>Image Gallery</h2>
+<div class="" ng-init="searchImageByKeyword()">
+  <h4 class="center-align" style="margin-bottom:20px;">Image Gallery</h4>
   <div class="row">
-    <div class="col-md-4" ng-repeat="img in imageData track by $index">
-      <div class="thumbnail">
-        <a href="{{img.url}}" target="_blank">
-          <img src="{{img.url}}" alt="Lights" style="width:100%">
-          <div class="caption">
-          </div>
-        </a>
-      </div>
+    <div class="col m12 s12">
+      <ul class="gallery">
+        <li ng-repeat="img in imageData track by $index">
+            <img class="materialboxed" src="{{img.url}}">
+        </li>
+      </ul>
     </div>
   </div>
 </div>

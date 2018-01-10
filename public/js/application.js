@@ -5,7 +5,12 @@ var app = angular.module('image-search-engine',['ui.router'])
             	url : '/search',
             	templateUrl:'templates/images-search.html',
             	controller:'imageCtrl'
-            })
+			})
+			.state('all-images',{
+				url:'/image-listing',
+				templateUrl:'templates/image-listing.html',
+				controller:'imageCtrl'
+			})
             .state('image-list',{
             	url : '/list',
             	templateUrl:'templates/image_list.html',

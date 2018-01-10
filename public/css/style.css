@@ -10,10 +10,65 @@
    z-index: 99;
    text-align: center;
 }
-
 #loading-image {
   position: absolute;
   top: 250px;
   left: 518px;
   z-index: 100;
+}
+.search-page{
+  background: url('../images/bg.jpg') scroll no-repeat center center / cover;
+  min-height: 100vh;
+  position: absolute;
+  left:0;
+  top:0;
+  width:100%;
+}
+.search-div{
+  margin-top: 250px;
+  padding: 15px 30px;
+  background: rgba(0,0,0,.3);
+  border-radius:4px;
+}
+.search-div .input-field{
+  margin-top: 0;
+}
+.search-div .input-field input{
+  border-bottom: 2px solid #ffffff;
+  color:#fff;
+}
+.search-div label{
+  color:#fff;
+}
+.search-div button{
+  width:100%;
+}
+.search-div .input-group{
+  margin-top:20px;
+}
+.keyword-listing ul li{
+  padding: 0 !important;
+}
+.keyword-listing ul li a{
+  display: block;
+  color:#333;
+  padding: 10px 15px 10px 20px;
+}
+.keyword-listing ul li a:hover{
+  color:#fff;
+}
+.keyword-listing ul li:hover{
+  background: rgba(33,150,243,.7);
+}
+.gallery{
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.gallery li{
+  width:20%;
+  display: inline-block;
+}
+.gallery li img{
+  width:100%;
 }

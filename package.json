@@ -12,7 +12,8 @@
     "express": "~4.5.1",
     "images-scraper": "~2.0.11",
     "method-override": "~2.0.2",
-    "mongodb": "*"
+    "mongodb": "*",
+    "nodemon": "^1.14.7"
   },
   "author": "Sashikant Agarwal",
   "license": "ISC"
