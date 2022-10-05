@@ -10,7 +10,7 @@
   "dependencies": {
     "body-parser": "~1.4.2",
     "express": "~4.5.1",
-    "images-scraper": "~2.0.11",
+    "images-scraper": "~2.0.12",
     "method-override": "~2.0.2",
     "mongodb": "*",
     "nodemon": "^1.14.7"
