@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "body-parser": "~1.4.2",
-    "express": "~4.5.1",
+    "express": "~4.17.3",
     "images-scraper": "~2.0.11",
     "method-override": "~2.0.2",
     "mongodb": "*",
